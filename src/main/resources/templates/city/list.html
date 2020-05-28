@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br/>
+
+<a href="/city/create">Create new city</a>
+<h1>City</h1>
+<br/>
+<table   border="1">
+    <tr>
+        <th>ID</th>
+        <th>GDB</th>
+        <th>AREA</th>
+        <th>DESCRIPTION</th>
+        <th>NAME</th>
+        <th>POPULATION</th>
+        <th>PROVINCE</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>VIEW</th>
+    </tr>
+    <th:block th:each="ci : ${citys}">
+        <tr>
+            <td th:text="${ci.id}"></td>
+            <td th:text="${ci.GDB}">
+            <td th:text="${ci.area}">
+            <td th:text="${ci.description}">
+            <td th:text="${ci.name}">
+            <td th:text="${ci.population}">
+
+            <td th:text="${ci.province.name}">
+            <td><a th:href="@{/city/edit/{id}(id=${ci.getId()})}">Edit</a></td>
+            <td><a th:href="@{/city/delete/__${ci.id}__ }">Delete</a></td>
+            <td><a th:href="@{/city/view/__${ci.id}__ }">View</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
